@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden, Space & Soul — Bespoke Garden Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --sage: #8a9e7b;
+    --deep-sage: #4a6741;
+    --moss: #3a5232;
+    --earth: #7a6248;
+    --stone: #c4b89a;
+    --dark: #1e1e18;
+    --mid: #4a4a3e;
+    --light-text: #8a8a7a;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--dark);
+    font-family: var(--sans);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,184,154,0.25);
+    transition: padding 0.4s;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    text-decoration: none;
+    line-height: 1.3;
+  }
+
+  .nav-logo span {
+    display: block;
+    font-size: 0.62rem;
+    font-family: var(--sans);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 1px;
+    background: var(--sage);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--moss); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--moss);
+    padding: 0.65rem 1.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--deep-sage); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-side {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(74,103,65,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(138,158,123,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(58,82,50,0.25) 0%, transparent 55%),
+      linear-gradient(160deg, #c8d5b9 0%, #8fad7c 25%, #4a6741 55%, #2d4426 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem;
+  }
+
+  .hero-image-caption {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Botanical illustration overlay */
+  .hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(0,0,0,0.08) 0%, transparent 40%);
+    mix-blend-mode: overlay;
+  }
+
+  .hero-content-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5rem 5rem 5rem;
+    background: var(--warm-white);
+    position: relative;
+  }
+
+  .hero-content-side::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--stone) 40%, var(--stone) 60%, transparent);
+    opacity: 0.4;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--deep-sage);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 3rem;
+    max-width: 38ch;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--moss);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--deep-sage); transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--earth);
+    text-decoration: none;
+    border-bottom: 1px solid var(--stone);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .btn-ghost:hover { color: var(--moss); border-color: var(--sage); }
+
+  .hero-footer {
+    position: absolute;
+    bottom: 3rem;
+    left: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 1.1s forwards;
+  }
+
+  .hero-footer-line {
+    width: 40px;
+    height: 1px;
+    background: var(--stone);
+  }
+
+  .hero-footer-text {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-text);
+  }
+
+  /* ── SECTION GLOBALS ── */
+  section { position: relative; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--stone);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--deep-sage); }
+
+  .section-body {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 58ch;
+  }
+
+  /* ── ETHOS ── */
+  #ethos {
+    padding: 9rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background: var(--cream);
+    overflow: hidden;
+    position: relative;
+  }
+
+  #ethos::before {
+    content: 'ETHOS';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: var(--serif);
+    font-size: 9rem;
+    font-weight: 300;
+    color: rgba(138,158,123,0.07);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.15em;
+  }
+
+  .ethos-text { padding-right: 2rem; }
+
+  .ethos-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--dark);
+    border-left: 2px solid var(--sage);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .ethos-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+
+  .ethos-img {
+    border-radius: 0;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+
+  .ethos-img:first-child {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    aspect-ratio: unset;
+  }
+
+  .ethos-img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ethos-img:nth-child(1) .ethos-img-placeholder {
+    min-height: 420px;
+    background: linear-gradient(200deg, #6b8c5a 0%, #3d5c30 50%, #2a3d20 100%);
+  }
+  .ethos-img:nth-child(2) .ethos-img-placeholder {
+    background: linear-gradient(160deg, #c9c2a8 0%, #9a8e70 50%, #6b6050 100%);
+  }
+  .ethos-img:nth-child(3) .ethos-img-placeholder {
+    background: linear-gradient(140deg, #8fad7c 0%, #5a7a48 50%, #3a5232 100%);
+  }
+
+  .img-label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── CLIENTS ── */
+  #clients {
+    padding: 9rem 4rem;
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  .clients-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .clients-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+  }
+
+  .clients-header .section-label { color: var(--stone); }
+  .clients-header .section-title { color: var(--cream); }
+  .clients-header .section-body { color: rgba(245,240,232,0.7); }
+
+  .clients-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .client-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s;
+  }
+
+  .client-card:hover { background: #282820; }
+
+  .client-card-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(138,158,123,0.25);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .client-card-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .client-card-body {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.55);
+  }
+
+  /* ── PLANTING ── */
+  #planting {
+    padding: 9rem 4rem;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .planting-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .planting-intro {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .planting-feature {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+    grid-template-rows: 380px 380px;
+    gap: 0.75rem;
+  }
+
+  .plant-tile {
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+  }
+
+  .plant-tile:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .plant-tile-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    transition: transform 0.6s;
+    position: relative;
+  }
+
+  .plant-tile:hover .plant-tile-bg { transform: scale(1.03); }
+
+  .plant-tile:nth-child(1) .plant-tile-bg {
+    background: linear-gradient(190deg, #7aab5a 0%, #4a7a30 40%, #1e3d10 100%);
+  }
+  .plant-tile:nth-child(2) .plant-tile-bg {
+    background: linear-gradient(160deg, #d4c8a8 0%, #8a7a58 60%, #5a4e38 100%);
+  }
+  .plant-tile:nth-child(3) .plant-tile-bg {
+    background: linear-gradient(140deg, #b8c9a0 0%, #7a9a60 60%, #4a6a38 100%);
+  }
+  .plant-tile:nth-child(4) .plant-tile-bg {
+    background: linear-gradient(170deg, #c8b89a 0%, #9a8268 60%, #6a5848 100%);
+  }
+  .plant-tile:nth-child(5) .plant-tile-bg {
+    background: linear-gradient(150deg, #a8c490 0%, #6a9a50 60%, #3a6028 100%);
+  }
+
+  .plant-tile-label {
+    position: relative;
+    z-index: 2;
+  }
+
+  .plant-tile-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .plant-tile-common {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .planting-philosophy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(196,184,154,0.35);
+  }
+
+  .philosophy-item-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .philosophy-item-body {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+  }
+
+  .philosophy-item-icon {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    padding: 9rem 4rem;
+    background: var(--cream);
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    padding: 2.5rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--stone);
+    opacity: 0.4;
+  }
+
+  .service-card:hover {
+    border-bottom-color: var(--sage);
+    transform: translateY(-3px);
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .service-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .service-body {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-includes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .service-includes li {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--deep-sage);
+    background: rgba(74,103,65,0.08);
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* ── APPROACH ── */
+  #approach {
+    padding: 9rem 4rem;
+    background: var(--warm-white);
+  }
+
+  .approach-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .approach-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 5rem;
+    position: relative;
+  }
+
+  .approach-steps::before {
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    height: 1px;
+    background: var(--stone);
+    opacity: 0.5;
+  }
+
+  .approach-step {
+    padding: 0 2rem;
+    padding-top: 0;
+  }
+
+  .approach-step:first-child { padding-left: 0; }
+  .approach-step:last-child { padding-right: 0; }
+
+  .step-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--warm-white);
+    border: 2px solid var(--sage);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-num {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    color: var(--stone);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .step-body {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+  }
+
+  /* ── GALLERY ── */
+  #work {
+    padding: 9rem 4rem 0;
+    background: var(--cream);
+  }
+
+  .gallery-header {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: end;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 280px 280px;
+    gap: 0.5rem;
+  }
+
+  .gal-item { overflow: hidden; }
+
+  .gal-item:nth-child(1) { grid-column: 1 / 6; grid-row: 1; }
+  .gal-item:nth-child(2) { grid-column: 6 / 9; grid-row: 1; }
+  .gal-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1; }
+  .gal-item:nth-child(4) { grid-column: 1 / 4; grid-row: 2; }
+  .gal-item:nth-child(5) { grid-column: 4 / 9; grid-row: 2; }
+  .gal-item:nth-child(6) { grid-column: 9 / 13; grid-row: 2; }
+
+  .gal-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  .gal-placeholder:hover { opacity: 0.88; }
+
+  .gal-item:nth-child(1) .gal-placeholder { background: linear-gradient(180deg, #5a8040 0%, #2d4a1e 100%); }
+  .gal-item:nth-child(2) .gal-placeholder { background: linear-gradient(200deg, #c4b89a 0%, #7a6248 100%); }
+  .gal-item:nth-child(3) .gal-placeholder { background: linear-gradient(160deg, #8aad70 0%, #4a6a30 100%); }
+  .gal-item:nth-child(4) .gal-placeholder { background: linear-gradient(140deg, #b0a888 0%, #6a6248 100%); }
+  .gal-item:nth-child(5) .gal-placeholder { background: linear-gradient(170deg, #7aaa5a 0%, #3a5a28 100%); }
+  .gal-item:nth-child(6) .gal-placeholder { background: linear-gradient(150deg, #c8b890 0%, #7a6850 100%); }
+
+  .gal-info {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gal-project {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    display: block;
+  }
+
+  .gal-location {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 9rem 4rem;
+    background: var(--warm-white);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(190deg, #8aad70 0%, #4a7a38 40%, #2a4a1a 100%);
+    position: relative;
+  }
+
+  .about-image-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    border: 1px solid var(--stone);
+    z-index: -1;
+  }
+
+  .about-credential {
+    position: absolute;
+    bottom: 2rem;
+    left: -2rem;
+    background: var(--warm-white);
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  .about-credential-name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .about-credential-title {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .about-text p {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(196,184,154,0.4);
+  }
+
+  .about-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .about-value-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .about-value-text {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--mid);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    padding: 9rem 4rem;
+    background: var(--moss);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 90%, rgba(74,103,65,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 10%, rgba(42,64,30,0.5) 0%, transparent 50%);
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 7rem;
+  }
+
+  .contact-info .section-label { color: var(--stone); }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-title em { font-style: italic; }
+
+  .contact-intro {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 3rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-detail-label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    min-width: 60px;
+    margin-top: 0.1rem;
+  }
+
+  .contact-detail-value {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .contact-detail-value a {
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245,240,232,0.25);
+    transition: border-color 0.3s;
+  }
+
+  .contact-detail-value a:hover { border-color: var(--stone); }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(196,184,154,0.25);
+    padding: 0.85rem 1rem;
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--cream);
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(245,240,232,0.3);
+    font-style: italic;
+  }
+
+  .form-group select option { background: var(--moss); color: var(--cream); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--stone);
+    background: rgba(255,255,255,0.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+  .form-note {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.5;
+    max-width: 22ch;
+  }
+
+  .btn-submit {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    background: var(--cream);
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .btn-submit:hover { background: var(--warm-white); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+  }
+
+  .footer-areas {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.25);
+  }
+
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: rgba(245,240,232,0.25);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-image-side { height: 55vw; }
+    .hero-image-placeholder { min-height: unset; height: 100%; }
+    .hero-content-side { padding: 5rem 2.5rem 4rem; }
+    .hero-footer { left: 2.5rem; }
+    #ethos { grid-template-columns: 1fr; padding: 6rem 2rem; }
+    .ethos-text { padding-right: 0; }
+    .clients-header { grid-template-columns: 1fr; gap: 2rem; }
+    .clients-cards { grid-template-columns: 1fr; }
+    .services-header { grid-template-columns: 1fr; gap: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .approach-steps { grid-template-columns: 1fr 1fr; }
+    .approach-steps::before { display: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gal-item:nth-child(n) { grid-column: auto; grid-row: auto; height: 240px; }
+    .about-inner { grid-template-columns: 1fr; gap: 4rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+    .planting-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .planting-philosophy { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    #ethos, #clients, #planting, #services, #approach, #work, #about, #contact { padding-left: 2rem; padding-right: 2rem; }
+    .gallery-header { grid-template-columns: 1fr; gap: 2rem; padding: 0 2rem; }
+    .planting-feature { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .plant-tile:first-child { grid-row: auto; }
+    .plant-tile-bg { min-height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    Garden, Space &amp; Soul
+    <span>Bespoke Garden Design</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ethos">Ethos</a></li>
+    <li><a href="#planting">Planting</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Begin a Conversation</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-image-side">
+    <div class="hero-image-placeholder">
+      <span class="hero-image-caption">Manor house kitchen garden — Somerset</span>
+    </div>
+  </div>
+  <div class="hero-content-side">
+    <p class="hero-eyebrow">Garden Design &amp; Planting — Somerset · Wiltshire · Cotswolds</p>
+    <h1 class="hero-title">
+      Gardens that<br>
+      <em>breathe with</em><br>
+      their landscape
+    </h1>
+    <p class="hero-subtitle">Bespoke garden design for those who believe that a garden is not simply a space, but an extension of the soul of a home.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact" class="btn-ghost">Begin a conversation</a>
+    </div>
+    <div class="hero-footer">
+      <div class="hero-footer-line"></div>
+      <span class="hero-footer-text">Andrew Alden — Founder &amp; Designer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ETHOS -->
+<section id="ethos">
+  <div class="ethos-text reveal">
+    <p class="section-label">Our Ethos</p>
+    <h2 class="section-title">Harmony between <em>garden, landscape<br>and home</em></h2>
+    <blockquote class="ethos-quote">
+      "A garden should feel inevitable — as though it could only ever have existed in precisely this place."
+    </blockquote>
+    <p class="section-body">
+      At Garden, Space &amp; Soul, we believe that great garden design begins not with the plants or the plans, but with deep listening. To the land, to the light, to the architecture, and to the people who will inhabit the space.
+    </p>
+    <br>
+    <p class="section-body">
+      Every garden we create seeks holistic harmony — a seamless conversation between the structure of the design, the richness of the planting, the character of the surrounding landscape, and the spirit of the house it serves. Whether drawing from the formal traditions of English garden design or crafting something quietly contemporary, our work is always rooted in place.
+    </p>
+  </div>
+  <div class="ethos-image-grid reveal">
+    <div class="ethos-img">
+      <div class="ethos-img-placeholder">
+        <span class="img-label">Walled garden — Wiltshire</span>
+      </div>
+    </div>
+    <div class="ethos-img">
+      <div class="ethos-img-placeholder">
+        <span class="img-label">Terraced formal — Cotswolds</span>
+      </div>
+    </div>
+    <div class="ethos-img">
+      <div class="ethos-img-placeholder">
+        <span class="img-label">Meadow planting — Somerset</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="clients-inner">
+    <div class="clients-header reveal">
+      <div>
+        <p class="section-label">Our Clients</p>
+        <h2 class="section-title" style="color:var(--cream)">Exceptional homes<br>deserve <em>exceptional gardens</em></h2>
+      </div>
+      <div>
+        <p class="section-body" style="color:rgba(245,240,232,0.65)">
+          Our clients are people who understand that a garden is an investment — in beauty, in wellbeing, and in the long-term value of their property. They are custodians of extraordinary places, and they expect a designer who shares that sense of responsibility.
+        </p>
+      </div>
+    </div>
+    <div class="clients-cards reveal">
+      <div class="client-card">
+        <div class="client-card-num">01</div>
+        <div class="client-card-title">Listed Buildings &amp; Manor Houses</div>
+        <p class="client-card-body">Grade I and II listed properties whose gardens must honour the heritage and proportions of architecture that has shaped the landscape for centuries.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card-num">02</div>
+        <div class="client-card-title">Country Houses &amp; Estates</div>
+        <p class="client-card-body">Substantial private estates in Somerset, Wiltshire and the Cotswolds seeking cohesive, ambitious designs across varied terrain and multiple garden rooms.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card-num">03</div>
+        <div class="client-card-title">Farmhouses &amp; Rural Retreats</div>
+        <p class="client-card-body">Detached farmhouses and rural properties whose owners want gardens that feel effortlessly rooted in the working English countryside.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card-num">04</div>
+        <div class="client-card-title">Contemporary Country Homes</div>
+        <p class="client-card-body">Architecturally considered modern homes requiring gardens of equal sophistication — calm, structured, and in genuine dialogue with their surroundings.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card-num">05</div>
+        <div class="client-card-title">Those Who Value Craft</div>
+        <p class="client-card-body">Clients who appreciate the difference between a garden that is designed and one that is simply planted. Who see beauty as essential, not ornamental.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card-num">06</div>
+        <div class="client-card-title">Long-Term Custodians</div>
+        <p class="client-card-body">Property owners committed to stewardship — who want their garden to mature, deepen, and evolve with the landscape over years and decades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANTING -->
+<section id="planting">
+  <div class="planting-inner">
+    <div class="planting-intro">
+      <div class="reveal">
+        <p class="section-label">Planting Philosophy</p>
+        <h2 class="section-title">A rich, <em>considered</em><br>plant palette</h2>
+      </div>
+      <div class="reveal">
+        <p class="section-body">Planting is the living soul of a garden. We work with an exceptionally detailed knowledge of plant selection — choosing varieties not merely for their beauty, but for their suitability to the local soil, the microclimate, the light, and the character of the wider landscape.</p>
+        <br>
+        <p class="section-body">From the deep horticultural traditions of the English country garden to contemporary naturalistic planting inspired by the new perennial movement, our palette spans structured formality and abundant informality — often within a single design.</p>
+      </div>
+    </div>
+
+    <div class="planting-feature reveal">
+      <div class="plant-tile">
+        <div class="plant-tile-bg">
+          <div class="plant-tile-label">
+            <span class="plant-tile-name">Rosa 'Generous Gardener'</span>
+            <span class="plant-tile-common">Climbing rose — limestone soils</span>
+          </div>
+        </div>
+      </div>
+      <div class="plant-tile">
+        <div class="plant-tile-bg">
+          <div class="plant-tile-label">
+            <span class="plant-tile-name">Verbascum olympicum</span>
+            <span class="plant-tile-common">Structural accent — dry chalk</span>
+          </div>
+        </div>
+      </div>
+      <div class="plant-tile">
+        <div class="plant-tile-bg">
+          <div class="plant-tile-label">
+            <span class="plant-tile-name">Deschampsia cespitosa</span>
+            <span class="plant-tile-common">Naturalistic grass — damp clay</span>
+          </div>
+        </div>
+      </div>
+      <div class="plant-tile">
+        <div class="plant-tile-bg">
+          <div class="plant-tile-label">
+            <span class="plant-tile-name">Alchemilla mollis</span>
+            <span class="plant-tile-common">Cottage edge — all soils</span>
+          </div>
+        </div>
+      </div>
+      <div class="plant-tile">
+        <div class="plant-tile-bg">
+          <div class="plant-tile-label">
+            <span class="plant-tile-name">Betula utilis 'Jacquemontii'</span>
+            <span class="plant-tile-common">Specimen tree — winter structure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="planting-philosophy">
+      <div class="reveal">
+        <div class="philosophy-item-icon">✦</div>
+        <div class="philosophy-item-title">Soil &amp; Condition Led</div>
+        <p class="philosophy-item-body">Every plant choice begins with the soil. The region's varied geology — from Somerset's heavy clays to the free-draining limestone of the Cotswolds — shapes every scheme from the ground upward.</p>
+      </div>
+      <div class="reveal">
+        <div class="philosophy-item-icon">✦</div>
+        <div class="philosophy-item-title">Structured &amp; Informal</div>
+        <p class="philosophy-item-body">We are equally at home designing precisely clipped topiary and formal knot gardens as we are composing the loose abundance of a traditional English border — and at our best, blending the two.</p>
+      </div>
+      <div class="reveal">
+        <div class="philosophy-item-icon">✦</div>
+        <div class="philosophy-item-title">Contemporary &amp; Traditional</div>
+        <p class="philosophy-item-body">An intimate understanding of both the new perennial movement and the deep lineage of English horticulture allows us to design gardens that feel simultaneously timeless and entirely of the present.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div>
+        <p class="section-label">Services</p>
+        <h2 class="section-title">From first vision to<br><em>final planting</em></h2>
+      </div>
+      <div>
+        <p class="section-body">We offer a complete and flexible range of design services — from a single consultation to a comprehensive, fully managed design journey. Each project is treated with the same care and singular attention, regardless of scale.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <rect x="4" y="4" width="28" height="28" rx="1"/>
+          <line x1="4" y1="13" x2="32" y2="13"/>
+          <line x1="4" y1="23" x2="32" y2="23"/>
+          <line x1="14" y1="13" x2="14" y2="32"/>
+        </svg>
+        <div class="service-title">Full Garden Design</div>
+        <p class="service-body">A comprehensive end-to-end design service. We work with you from initial brief through to full documentation, collaborating with builders, landscape contractors, and specialist suppliers.</p>
+        <ul class="service-includes">
+          <li>Site survey &amp; analysis</li>
+          <li>Concept development</li>
+          <li>Design development</li>
+          <li>Full documentation</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <circle cx="18" cy="18" r="12"/>
+          <line x1="18" y1="6" x2="18" y2="30"/>
+          <line x1="6" y1="18" x2="30" y2="18"/>
+          <circle cx="18" cy="18" r="4"/>
+        </svg>
+        <div class="service-title">Master Layout Plans</div>
+        <p class="service-body">Precisely drafted master plans that define the spatial structure of a garden — the geometry, proportions, levels, and circulation. The architectural backbone from which everything else grows.</p>
+        <ul class="service-includes">
+          <li>Hard landscaping layout</li>
+          <li>Levels &amp; grading</li>
+          <li>Feature placement</li>
+          <li>Boundary treatment</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <path d="M8 28 C10 20, 14 16, 18 12 C22 8, 28 8, 28 8"/>
+          <path d="M12 30 C14 22, 18 16, 24 14"/>
+          <circle cx="18" cy="12" r="3"/>
+          <circle cx="26" cy="20" r="2.5"/>
+          <circle cx="10" cy="22" r="2"/>
+        </svg>
+        <div class="service-title">Planting Plans</div>
+        <p class="service-body">Detailed, species-specific planting plans developed from deep horticultural knowledge and an intimate understanding of your site's soil, aspect, and character. Plants chosen to thrive.</p>
+        <ul class="service-includes">
+          <li>Full species schedule</li>
+          <li>Soil-matched selection</li>
+          <li>Seasonal interest</li>
+          <li>Planting densities</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <rect x="4" y="8" width="28" height="20" rx="1"/>
+          <path d="M4 14 L18 22 L32 14"/>
+          <line x1="12" y1="8" x2="12" y2="4"/>
+          <line x1="24" y1="8" x2="24" y2="4"/>
+        </svg>
+        <div class="service-title">Visualisations</div>
+        <p class="service-body">Hand-drawn and rendered visualisations that bring a design to life before a single stone is laid. Invaluable for communicating ambience, material character, and spatial feeling to clients and contractors alike.</p>
+        <ul class="service-includes">
+          <li>Perspective drawings</li>
+          <li>Rendered views</li>
+          <li>Material palettes</li>
+          <li>Seasonal impressions</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <path d="M18 4 L20 14 L30 12 L22 20 L28 30 L18 24 L8 30 L14 20 L6 12 L16 14 Z"/>
+        </svg>
+        <div class="service-title">Plant Advice</div>
+        <p class="service-body">Specialist plant advice for clients who wish to enhance an existing garden, identify problems, or develop their planting knowledge. Practical, expert guidance tailored to your particular conditions.</p>
+        <ul class="service-includes">
+          <li>Soil assessment</li>
+          <li>Species recommendations</li>
+          <li>Care &amp; cultivation</li>
+          <li>Sourcing guidance</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#4a6741" stroke-width="1.2">
+          <circle cx="18" cy="12" r="6"/>
+          <path d="M6 30 C6 23, 11 18, 18 18 C25 18, 30 23, 30 30"/>
+          <line x1="18" y1="18" x2="18" y2="24"/>
+          <circle cx="18" cy="27" r="1.5"/>
+        </svg>
+        <div class="service-title">Consultation &amp; Advice</div>
+        <p class="service-body">A focused, single-visit consultation for clients at any stage of their garden's life. Andrew brings an objective designer's eye and an immediate breadth of practical knowledge to any garden question.</p>
+        <ul class="service-includes">
+          <li>Site walkthrough</li>
+          <li>Design critique</li>
+          <li>Priority recommendations</li>
+          <li>Written summary</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="approach-inner">
+    <div class="reveal" style="max-width:600px">
+      <p class="section-label">How We Work</p>
+      <h2 class="section-title">A design process built<br>on <em>listening and craft</em></h2>
+    </div>
+    <div class="approach-steps">
+      <div class="approach-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">01</div>
+        <div class="step-title">The First Conversation</div>
+        <p class="step-body">Every project begins with a conversation — about your home, your aspirations, how you live outdoors, and what you feel is missing. No forms, no questionnaires. Just listening.</p>
+      </div>
+      <div class="approach-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">02</div>
+        <div class="step-title">Site Visit &amp; Analysis</div>
+        <p class="step-body">Andrew visits the site to understand the soil, the light, the levels, the views, and the character of the place. This foundation shapes everything that follows.</p>
+      </div>
+      <div class="approach-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">03</div>
+        <div class="step-title">Concept &amp; Design</div>
+        <p class="step-body">A design concept is developed — spatial, atmospheric, and specific to the place. Refined through conversation until it feels exactly right, then developed into full plans and planting schemes.</p>
+      </div>
+      <div class="approach-step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">04</div>
+        <div class="step-title">Delivery &amp; Legacy</div>
+        <p class="step-body">We guide the design through construction and planting, ensuring that the care taken at the drawing stage is honoured in the making of the garden itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="gallery-header reveal">
+    <div>
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Gardens we have<br><em>shaped and planted</em></h2>
+    </div>
+    <p class="section-body">Each project is a particular response to a particular place — no two gardens, and no two approaches, are ever the same.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">The Walled Garden</span>
+          <span class="gal-location">Near Bruton, Somerset</span>
+        </div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">Manor House Grounds</span>
+          <span class="gal-location">Wiltshire Downs</span>
+        </div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">Farmhouse &amp; Kitchen Garden</span>
+          <span class="gal-location">Near Cirencester, Cotswolds</span>
+        </div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">Contemporary Country House</span>
+          <span class="gal-location">Near Bath, Somerset</span>
+        </div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">Listed Georgian Rectory</span>
+          <span class="gal-location">Wiltshire</span>
+        </div>
+      </div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <div class="gal-info">
+          <span class="gal-project">Meadow &amp; Orchard</span>
+          <span class="gal-location">South Cotswolds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-image reveal">
+      <div class="about-image-frame"></div>
+      <div class="about-credential">
+        <span class="about-credential-name">Andrew Alden</span>
+        <span class="about-credential-title">Founder &amp; Garden Designer</span>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">About Andrew</p>
+      <h2 class="section-title">A designer who<br>understands <em>the land</em></h2>
+      <p>Andrew Alden founded Garden, Space &amp; Soul with a simple conviction: that the finest gardens emerge from a profound understanding of place. His work is shaped by a deep knowledge of English horticulture, a trained eye for spatial design, and a genuine love of the landscape of southern England.</p>
+      <p>Working across Somerset, Wiltshire, and the Cotswolds, Andrew brings an equally nuanced understanding of the formal traditions of country house garden design and the rich informality of the English cottage and kitchen garden — finding in both an opportunity for beauty, calm, and meaning.</p>
+      <p>His approach is personal and unhurried. Every client receives his singular, undivided attention. Every garden is designed from scratch, rooted entirely in the particular character of the site and the people who will inhabit it.</p>
+      <div class="about-values">
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Deep horticultural knowledge</span></div>
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Traditional &amp; contemporary design</span></div>
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Soil &amp; condition-led planting</span></div>
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Singular attention to each project</span></div>
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Somerset, Wiltshire &amp; Cotswolds</span></div>
+        <div class="about-value"><div class="about-value-dot"></div><span class="about-value-text">Listed properties &amp; country estates</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="contact-title">Every garden begins<br>with a <em>conversation</em></h2>
+      <p class="contact-intro">If you have a garden — or a vision for one — we would love to hear from you. There is no obligation; simply an opportunity to explore what might be possible.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#e78f828b8b88a780869583828994978684828689839488928bc98488c9928c"><span class="__cf_email__" data-cfemail="b3dbd6dfdfdcf3d4d2c1d7d6ddc0c3d2d0d6d2ddd7c0dcc6df9dd0dc9dc6d8">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <span class="contact-detail-value"><a href="tel:+447700000000">+44 (0) 7700 000 000</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Areas</span>
+          <span class="contact-detail-value">Somerset · Wiltshire · Cotswolds</span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Your email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Telephone</label>
+          <input type="tel" id="phone" placeholder="Your number">
+        </div>
+        <div class="form-group">
+          <label for="location">Location of Garden</label>
+          <input type="text" id="location" placeholder="Village or county">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Area of Interest</label>
+        <select id="service">
+          <option value="" disabled selected>Select a service</option>
+          <option>Full Garden Design</option>
+          <option>Master Layout Plan</option>
+          <option>Planting Plan</option>
+          <option>Visualisations</option>
+          <option>Plant Advice</option>
+          <option>Consultation &amp; Advice</option>
+          <option>Not yet sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Garden</label>
+        <textarea id="message" placeholder="A brief description of your property, what you're hoping to achieve, and anything else you'd like us to know…"></textarea>
+      </div>
+      <div class="form-submit">
+        <p class="form-note">We aim to respond within two working days.</p>
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Garden, Space &amp; Soul</a>
+  <span class="footer-areas">Somerset · Wiltshire · The Cotswolds</span>
+  <span class="footer-copy">© 2025 Garden, Space &amp; Soul. Andrew Alden.</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Enquiry Sent';
+    btn.style.background = '#8a9e7b';
+    btn.style.color = 'white';
+    btn.disabled = true;
+  }
+
+  // Stagger cards
+  document.querySelectorAll(".clients-cards .client-card, .services-grid .service-card").forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + "s";
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
