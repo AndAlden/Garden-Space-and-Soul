@@ -1235,7 +1235,7 @@
       <em>breathe with</em><br>
       their landscape
     </h1>
-    <p class="hero-subtitle">Bespoke garden design for those who believe that a garden is not simply a space, but an expression of the soul.</p>
+    <p class="hero-subtitle">Bespoke garden design for those who believe that a garden is not simply a space, but an extension of the soul of a home.</p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">Explore Services</a>
       <a href="#contact" class="btn-ghost">Begin a conversation</a>
@@ -1256,7 +1256,7 @@
       "A garden should feel inevitable — as though it could only ever have existed in precisely this place."
     </blockquote>
     <p class="section-body">
-      At Garden, Space &amp; Soul, we believe that great garden design begins not just with the plants or the plans, but with deep listening. To the land, to the light, to the architecture, and to the people who will inhabit the space.
+      At Garden, Space &amp; Soul, we believe that great garden design begins not with the plants or the plans, but with deep listening. To the land, to the light, to the architecture, and to the people who will inhabit the space.
     </p>
     <br>
     <p class="section-body">
@@ -1662,11 +1662,11 @@
       <div class="contact-details">
         <div class="contact-detail">
           <span class="contact-detail-label">Email</span>
-          <span class="contact-detail-value"><a href="andrewalden@gardenspaceandsoul.co.uk"><span class="__cf_email__" data-cfemail="andrewalden@gardenspaceandsoul.co.uk">[Andrew&#160;Alden]</span></a></span>
+          <span class="contact-detail-value"><a href="mailto:andrewalden@gardenspaceandsoul.co.uk">andrewalden@gardenspaceandsoul.co.uk</a></span>
         </div>
         <div class="contact-detail">
           <span class="contact-detail-label">Phone</span>
-          <span class="contact-detail-value"><a href="tel:+44 7894 736 788">+44 (0) 7894 736788 </a></span>
+          <span class="contact-detail-value"><a href="tel:+447700000000">+44 (0) 7700 000 000</a></span>
         </div>
         <div class="contact-detail">
           <span class="contact-detail-label">Areas</span>
@@ -1674,7 +1674,7 @@
         </div>
       </div>
     </div>
-    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+    <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -1682,13 +1682,13 @@
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="email address" required>
+          <input type="email" id="email" placeholder="Your email" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="phone">Telephone</label>
-          <input type="tel" id="phone" placeholder="Telephone Number">
+          <input type="tel" id="phone" placeholder="Your number">
         </div>
         <div class="form-group">
           <label for="location">Location of Garden</label>
@@ -1727,7 +1727,7 @@
   <span class="footer-copy">© 2025 Garden, Space &amp; Soul. Andrew Alden.</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1746,8 +1746,27 @@
   // Form
   function handleSubmit(e) {
     e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const location = document.getElementById('location').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+
+    const subject = encodeURIComponent('Garden Enquiry from ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Garden Location: ' + location + '\n' +
+      'Service of Interest: ' + service + '\n\n' +
+      'Message:\n' + message
+    );
+
+    window.location.href = 'mailto:andrewalden@gardenspaceandsoul.co.uk?subject=' + subject + '&body=' + body;
+
     const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Enquiry Sent';
+    btn.textContent = 'Opening your email...';
     btn.style.background = '#8a9e7b';
     btn.style.color = 'white';
     btn.disabled = true;
